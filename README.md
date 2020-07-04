@@ -74,6 +74,49 @@ int main(int argc, const char * argv[]) {
 }
 ```
 
+# MLP Transpiler
+
+### Python Exporting
+
+```
+from sklearn.neural_network import MLPClassifier
+from sklearn.datasets import load_wine as dts
+import numpy as np
+
+data = load_wine()
+dataset = np.column_stack((data.data, data.target))
+
+mlp = MLPClassifier(hidden_layer_sizes=(30, 10))
+
+mlp.fit(dataset[::, :-1], dataset[::,-1])
+
+from clara.transpiler.mlp import mlpTranpiler
+
+transpiler = mlpTranpiler(mlp)
+
+code = transpiler.generate_code()
+
+with open("mlp.c", "w+") as fp:
+  fp.write(code)
+
+```
+
+# Test code in C
+
+
+```c
+int main(){
+    double s[N_FEATURES] = {14.23, 1.71, 2.43, 15.6, 127.0, 2.8, 3.06, 0.28, 2.29, 5.64, 1.04, 3.92, 1065.0};
+    int class;
+    for(int i = 0; i<N_FEATURES; i++){
+      sample[i] = s[i];
+    }
+    class = predict(sample);
+    return 0;
+}
+
+```
+
 # Cite Us
 
 `Sérgio Branco. (2020, July 4). CLARA - Embedded ML Tools (Version v0.0.1). Zenodo. http://doi.org/10.5281/zenodo.3930336`

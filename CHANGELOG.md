@@ -1,6 +1,6 @@
 # Changelog
 
-> __version 0.0.1__
+> __v0.0.1__
 > *September, 08 2019*
 > + PCA transpiling tools
 >   + Added:
@@ -12,3 +12,9 @@
 >   + To Do:
 >     - Export
 >     - Beautiful file
+
+> __v0.0.2__
+> *September, 15 2019*
+> + MLP transpiling tools
+>   + Added:
+>     - Full prediction capabilities

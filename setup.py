@@ -3,12 +3,12 @@ from setuptools import setup, find_packages
 # read the contents of your README file
 from os import path
 this_directory = path.abspath(path.dirname(__file__))
-with open(path.join(this_directory, 'readme.md'), encoding='utf-8') as f:
+with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
     name="clara",
-    version="0.0.1", #Increse y, when gateway and archnetws are created. x.y.z
+    version="0.0.2", #Increse y, when gateway and archnetws are created. x.y.z
     author="Sergio Branco | The Architech",
     author_email="asergio.branco@gmail.com",
     description="",
