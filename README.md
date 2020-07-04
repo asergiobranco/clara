@@ -5,7 +5,7 @@
 
 ### Python Exporting
 
-```
+```python
 from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
 from sklearn.datasets import load_wine
@@ -78,7 +78,7 @@ int main(int argc, const char * argv[]) {
 
 ### Python Exporting
 
-```
+```python
 from sklearn.neural_network import MLPClassifier
 from sklearn.datasets import load_wine as dts
 import numpy as np
