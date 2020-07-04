@@ -3,6 +3,37 @@
 
 # PCA Transpiler
 
+### Python Exporting
+
+```
+from sklearn.decomposition import PCA
+from sklearn.preprocessing import StandardScaler
+from sklearn.datasets import load_wine
+
+data = load_wine()
+dataset = np.column_stack((data.data, data.target))
+scale = StandardScaler()
+
+pca = PCA(n_components=0.8)
+
+X = scale.fit_transform(dataset[::,:-1])
+pca.fit(X)
+
+from clara.transpiler.pca import PCATranspiler
+
+transpiler = PCATranspiler(pca)
+
+code = transpiler.generate_code()
+
+with open("pca.c", "w+") as fp:
+  fp.write(code)
+
+```
+
+# Test code in C
+
+The results may vary, but if they should be the same!!
+
 ```c
 int main(int argc, const char * argv[]) {
     // insert code here...
