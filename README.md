@@ -76,12 +76,12 @@ int main(int argc, const char * argv[]) {
 
 # Cite Us
 
-`Sérgio Branco. (2020, July 4). asergiobranco/clara: PCA Transpiling (Version v0.0.1). Zenodo. http://doi.org/10.5281/zenodo.3930336`
+`Sérgio Branco. (2020, July 4). CLARA - Embedded ML Tools (Version v0.0.1). Zenodo. http://doi.org/10.5281/zenodo.3930336`
 
 ```
 @software{sergio_branco_2020_3930336,
   author       = {Sérgio Branco},
-  title        = {asergiobranco/clara: PCA Transpiling},
+  title        = {CLARA - Embedded ML Tools},
   month        = jul,
   year         = 2020,
   publisher    = {Zenodo},
