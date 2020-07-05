@@ -24,3 +24,10 @@
 > + DecisionTreeClassifier transpiling tools
 >   + Added:
 >     - Full prediction capabilities
+
+> __v0.0.4__
+> *September, 30 2019*
+> + SVC Classifier transpiling tools (NuSVC included)
+>   + Added:
+>     - Full prediction capabilities
+> `The RBF kernel may not work properly`
