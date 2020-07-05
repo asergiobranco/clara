@@ -18,3 +18,9 @@
 > + MLP transpiling tools
 >   + Added:
 >     - Full prediction capabilities
+
+> __v0.0.3__
+> *September, 23 2019*
+> + DecisionTreeClassifier transpiling tools
+>   + Added:
+>     - Full prediction capabilities
