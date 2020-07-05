@@ -1,5 +1,11 @@
 # clara
 
+## Transpiling Tools
+
+| Python Class | Clara Class |
+|:------------:|:-----------------:|
+| [sklearn.decomposition.PCA](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html) | clara.transpiler.pca.PCATranspiler |
+| [sklearn.neural_network.MLPClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.neural_network.MLPClassifier.html) | clara.transpiler.mlp.mlpTranpiler|
 
 # PCA Transpiler
 
@@ -118,6 +124,8 @@ int main(){
 ```
 
 # Cite Us
+
+DOI: [10.5281/zenodo.3930335](https://doi.org/10.5281/zenodo.3930335)
 
 `Sérgio Branco. (2020, July 4). CLARA - Embedded ML Tools (Version v0.0.1). Zenodo. http://doi.org/10.5281/zenodo.3930336`
 
