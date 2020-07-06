@@ -82,8 +82,8 @@ class SVCTranspiler(object):
             for(i=0; i<N_SUPPORT_VECTORS; i++){
                 kernels[i] = 0;
                 for(j=0; j<N_FEATURES; j++){
-                    //kernels[i] += (support_vectors[i][j]*support_vectors[i][j] - (2*support_vectors[i][j]*sample[j]) + sample[j]*sample[j]);
-                    kernels[i] += pow(support_vectors[i][j] - sample[j], 2);
+                    kernels[i] += (support_vectors[i][j]*support_vectors[i][j] - (2*support_vectors[i][j]*sample[j]) + sample[j]*sample[j]);
+                    //kernels[i] += pow(support_vectors[i][j] - sample[j], 2);
                 }
                 kernels[i] = exp(-1* GAMMA * kernels[i]);
             }
