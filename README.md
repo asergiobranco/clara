@@ -10,6 +10,18 @@
 | [sklearn.svm.SVC](https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html) | clara.transpiler.tree.SVCTranspiler|
 | [sklearn.svm.NuSVC](https://scikit-learn.org/stable/modules/generated/sklearn.svm.NuSVC.html) | clara.transpiler.svm.SVCTranspiler|
 
+
+```python
+
+model = ScikitLearnClass() #The model class you want to use
+model.fit()
+
+transpiler = ClaraClassTranspiler(model) #The correspondent Clara Class
+
+c_code = transpiler.generate_code()
+
+
+``
 # PCA Transpiler
 
 ### Python Exporting
