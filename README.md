@@ -20,8 +20,8 @@ transpiler = ClaraClassTranspiler(model) #The correspondent Clara Class
 
 c_code = transpiler.generate_code()
 
+```
 
-``
 # PCA Transpiler
 
 ### Python Exporting
