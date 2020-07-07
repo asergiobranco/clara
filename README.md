@@ -5,14 +5,14 @@
 | Python Class | Clara Class |
 |:------------:|:-----------------:|
 | [sklearn.decomposition.PCA](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html) | clara.transpiler.pca.PCATranspiler |
-| #### Neural Networks |
+| *Neural Networks* ||
 | [sklearn.neural_network.MLPClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.neural_network.MLPClassifier.html) | clara.transpiler.mlp.mlpTranpiler|
-| #### Decision Tree |
+| *Decision Tree* ||
 | [sklearn.tree.DecisionTreeClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html) | clara.transpiler.tree.DecisionTreeClassifierTranspiler|
-| #### Support-Vector Machines |
+| *Support-Vector Machines* ||
 | [sklearn.svm.SVC](https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html) | clara.transpiler.tree.SVCTranspiler|
 | [sklearn.svm.NuSVC](https://scikit-learn.org/stable/modules/generated/sklearn.svm.NuSVC.html) | clara.transpiler.svm.SVCTranspiler|
-| [sklearn.svm.LinearSVM](https://scikit-learn.org/stable/modules/generated/sklearn.svm.LinearSVM.html | clara.transpiler.svm.LinearSVMTranspiler |
+| [sklearn.svm.LinearSVM](https://scikit-learn.org/stable/modules/generated/sklearn.svm.LinearSVM.html) | clara.transpiler.svm.LinearSVMTranspiler |
 
 
 ```python
