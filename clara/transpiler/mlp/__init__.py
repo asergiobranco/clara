@@ -6,7 +6,7 @@ class mlpTranpiler(object):
         self.build_weights()
         self.build_layers()
         self.build_bias()
-        
+
     def build_layers(self):
         self.networks = ""
         self.name_networks = "%s" % (','.join(["network%d" %(x+1) for x in range(len(self.model.hidden_layer_sizes))]))
@@ -39,6 +39,9 @@ class mlpTranpiler(object):
 
     def generate_code(self):
         return """
+        /*
+        The following code was generated using Clara.Transpiler. For more information please visit: https://github.com/asergiobranco/clara
+        */
         #include <stdio.h>
         #include <math.h>
 
