@@ -37,3 +37,11 @@
 >   + Added:
 >     - Full prediction capabilities
 > `The RBF kernel may not work properly`
+
+---
+
+> __v0.5.0__
+> *September, 30 2019*
+> + LinearSV; Classifier transpiling tools (NuSVC included)
+>   + Added:
+>     - Full prediction capabilities
