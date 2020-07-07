@@ -10,6 +10,9 @@ class PCATranspiler(object):
         self.componentsT_ = "{ {%s} }" % ("},\n\t{".join(map(lambda x : ",".join(x.astype(str)), self.model.components_.T.astype(str))))
         self.explained_variance_ = "{%s}" %  (",".join(self.model.explained_variance_.astype(str)))
         self.code = """
+        /*
+        The following code was generated using Clara.Transpiler. For more information please visit: https://github.com/asergiobranco/clara
+        */
         %s\n
         #define N_COMPONENTS %s
         #define N_FEATURES %s

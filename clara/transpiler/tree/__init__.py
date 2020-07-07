@@ -26,6 +26,9 @@ class DecisionTreeClassifierTranspiler(object):
 
     def generate_code(self):
         return """
+        /*
+        The following code was generated using Clara.Transpiler. For more information please visit: https://github.com/asergiobranco/clara
+        */
         #define NO_NODES %s
 
         unsigned char classes[NO_NODES] = {%s};
