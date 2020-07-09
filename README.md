@@ -10,9 +10,12 @@
 | *Decision Tree* ||
 | [sklearn.tree.DecisionTreeClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html) | clara.transpiler.tree.DecisionTreeClassifierTranspiler|
 | *Support-Vector Machines* ||
-| [sklearn.svm.SVC](https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html) | clara.transpiler.tree.SVCTranspiler|
+| [sklearn.svm.SVC](https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html) | clara.transpiler.svm.SVCTranspiler|
 | [sklearn.svm.NuSVC](https://scikit-learn.org/stable/modules/generated/sklearn.svm.NuSVC.html) | clara.transpiler.svm.SVCTranspiler|
 | [sklearn.svm.LinearSVM](https://scikit-learn.org/stable/modules/generated/sklearn.svm.LinearSVM.html) | clara.transpiler.svm.LinearSVMTranspiler |
+| *Naive Bayes* ||
+| [sklearn.svm.SVC](https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.GaussianNB.html) | clara.transpiler.naive_bayes.GaussianNBTranspiler |
+
 
 
 ```python
