@@ -41,7 +41,15 @@
 ---
 
 > __v0.5.0__
-> *September, 30 2019*
+> *October, 07 2019*
 > + LinearSV; Classifier transpiling tools (NuSVC included)
+>   + Added:
+>     - Full prediction capabilities
+
+---
+
+> __v0.6.0__
+> *October, 14 2019*
+> + Naive Bayes - GausianNB
 >   + Added:
 >     - Full prediction capabilities
