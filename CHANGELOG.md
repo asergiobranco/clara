@@ -53,3 +53,12 @@
 > + Naive Bayes - GausianNB
 >   + Added:
 >     - Full prediction capabilities
+
+
+---
+
+> __v0.7.0__
+> *October, 21 2019*
+> + Naive Bayes - ComplementNB
+>   + Added:
+>     - Full prediction capabilities
