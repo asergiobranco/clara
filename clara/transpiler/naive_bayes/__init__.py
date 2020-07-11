@@ -1,1 +1,2 @@
 from.gausianNB import GaussianNBTranspiler
+from .complementNB import ComplementNBTranspiler
