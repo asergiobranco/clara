@@ -16,6 +16,7 @@
 | *Naive Bayes* ||
 | [sklearn.naive_bayes.GaussianNB ](https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.GaussianNB.html) | clara.transpiler.naive_bayes.GaussianNBTranspiler |
 | [sklearn.naive_bayes.ComplementNB ](https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.ComplementNB.html) | clara.transpiler.naive_bayes.ComplementNBTranspiler |
+| [sklearn.naive_bayes.MultinomialNB](https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.MultinomialNB.html) | clara.transpiler.naive_bayes.CMultinomialNBTranspiler |
 
 
 

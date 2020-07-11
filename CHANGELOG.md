@@ -62,3 +62,11 @@
 > + Naive Bayes - ComplementNB
 >   + Added:
 >     - Full prediction capabilities
+
+---
+
+> __v0.8.0__
+> *October, 28 2019*
+> + Naive Bayes - MultinomialNB
+>   + Added:
+>     - Full prediction capabilities
