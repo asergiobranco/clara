@@ -70,3 +70,11 @@
 > + Naive Bayes - MultinomialNB
 >   + Added:
 >     - Full prediction capabilities
+
+---
+
+> __v0.9.0__
+> *October, 28 2019*
+> + Naive Bayes - CategoricalNB
+>   + Added:
+>     - Full prediction capabilities
