@@ -78,3 +78,11 @@
 > + Naive Bayes - CategoricalNB
 >   + Added:
 >     - Full prediction capabilities
+
+---
+
+> __v0.10.0__
+> *October, 28 2019*
+> + Naive Bayes - bernoulliNB
+>   + Added:
+>     - Full prediction capabilities
