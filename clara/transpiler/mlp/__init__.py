@@ -1,2 +1,2 @@
-from .mlpc import MLPCTranpiler
-from .mlpr import MLPRTranpiler
+from .mlpc import MLPCTranspiler
+from .mlpr import MLPRTranspiler

@@ -1,4 +1,4 @@
-class MLPCTranspiler(object):
+class MLPRTranspiler(object):
 
     def __init__(self, model):
         self.model = model
@@ -47,16 +47,15 @@ class MLPCTranspiler(object):
         #include <math.h>
 
         #define N_LAYERS %d
-        #define N_CLASSES %d
         #define N_FEATURES %d
 
         #define %s
 
-        int networks_len[N_LAYERS] = {N_FEATURES, %s, N_CLASSES};
+        int networks_len[N_LAYERS] = {N_FEATURES, %s, 1};
 
         double sample[N_FEATURES] = {0};
         %s
-        double network_out[N_CLASSES] = {0};
+        double network_out[1] = {0};
 
         double * networks[N_LAYERS] = {sample, %s, network_out};
 
@@ -93,20 +92,6 @@ class MLPCTranspiler(object):
         #define ACTIVATION(...) tanh(__VA_ARGS__)
         #endif
 
-        double * softmax(double * neurons, int len){
-            double sum = 0;
-            int i = 0;
-            for(i =0; i<len; i++){
-                neurons[i] = exp(neurons[i]);
-                sum += neurons[i];
-            }
-
-            for(i =0; i<len; i++){
-                neurons[i] /= sum;
-            }
-
-            return neurons;
-        }
 
         double * propagation(double * network, double * next_network, double * weights, double * bias, int network_len, int next_network_len, int layer_no){
           int i = 0, j = 0, w=0;
@@ -130,26 +115,22 @@ class MLPCTranspiler(object):
           return next_network;
         }
 
-        int predict(double * sample){
+        double predict(double * sample){
           int i = 0;
+
           for(i =0 ; i<N_FEATURES; i++){networks[0][i] = sample[i];}
+
           for(i = 0; i < N_LAYERS - 1; i++){
             propagation(networks[i], networks[i+1], weights_networks[i], bias_networks[i], networks_len[i], networks_len[i+1], i);
           }
 
-            softmax(networks[N_LAYERS-1], networks_len[N_LAYERS-1]);
+          return networks[N_LAYERS-1][0];
 
-
-          int class = 0;
-          for(i = 0; i < N_CLASSES; i++){
-            class = networks[N_LAYERS-1][i] > networks[N_LAYERS-1][class] ?  i : class;
-          }
-            return class;
         }
 
 
         """ % (
-        len(self.model.coefs_) + 1, len(self.model.coefs_[0]), len(self.model.classes_), self.model.activation.upper(), self.layer_sizes,
+        len(self.model.coefs_) + 1, len(self.model.coefs_[0]),  self.model.activation.upper(), self.layer_sizes,
         self.networks, self.name_networks,
         self.bias, self.bias_networks,
         self.weigths, self.weights_networks
