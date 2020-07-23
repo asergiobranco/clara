@@ -7,6 +7,7 @@
 | [sklearn.decomposition.PCA](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html) | clara.transpiler.pca.PCATranspiler |
 | *Neural Networks* ||
 | [sklearn.neural_network.MLPClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.neural_network.MLPClassifier.html) | clara.transpiler.mlp.MLPCTranspiler|
+| [sklearn.neural_network.MLPRegressor](https://scikit-learn.org/stable/modules/generated/sklearn.neural_network.MLPRegressor.html) | clara.transpiler.mlp.MLPRTranspiler|
 | *Decision Tree* ||
 | [sklearn.tree.DecisionTreeClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html) | clara.transpiler.tree.DecisionTreeClassifierTranspiler|
 | *Support-Vector Machines* ||

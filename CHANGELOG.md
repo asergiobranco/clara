@@ -103,3 +103,12 @@
 >   + Correction:
 >     - Weights were generated incorrectly
 >     - Sample was not copied to the first layer
+
+---
+
+> __v0.12.0__
+> *December, 21 2019*
+> + MLP Regressor
+>   + Correction:
+>   + Added:
+>     - Full prediction capabilities
