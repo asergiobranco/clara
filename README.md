@@ -8,6 +8,7 @@ The following algorithms are available
   - MLP
   - Decision Tree
   - Support-Vector Machines (SVC & Nu)
+  - LinearSVM
   - Gaussian Naive Bayes
   - Complement Naive Bayes
   - Multinomial Naive Bayes
@@ -142,23 +143,54 @@ int main(int argc, const char * argv[]) {
 
 # MLP Transpiler
 
-### Python Exporting
+Multi-Layer Perceptron are the basis of Neural Networks and Deep Learning. Our tools provides a way to transpile MLPs for regression and classification problems.
+* **Note:** At the current time, binary classifications are not working... Sorry* 
+
+## MLPClassifier
 
 ```python
 from sklearn.neural_network import MLPClassifier
-from sklearn.datasets import load_wine as dts
+from sklearn.datasets import load_wine
 import numpy as np
+
+from clara.transpiler.mlp import MLPCTranspiler
 
 data = load_wine()
 dataset = np.column_stack((data.data, data.target))
 
 mlp = MLPClassifier(hidden_layer_sizes=(30, 10))
 
-mlp.fit(dataset[::, :-1], dataset[::,-1])
+mlp.fit(ddataset.data, dataset.target)
 
-from clara.transpiler.mlp import mlpTranpiler
 
-transpiler = mlpTranpiler(mlp)
+transpiler = MLPCTranspiler(mlp)
+
+code = transpiler.generate_code()
+
+with open("mlp.c", "w+") as fp:
+  fp.write(code)
+
+```
+
+## MLPRegressor
+
+```python
+from sklearn.neural_network import MLPRegressor
+from sklearn.datasets import load_boston
+import numpy as np
+
+from clara.transpiler.mlp import MLPRTranspiler
+
+data = load_boston()
+dataset = np.column_stack((data.data, data.target))
+
+mlp = MLPClassifier(hidden_layer_sizes=(30, 10))
+
+mlp.fit(dataset.data, dataset.target)
+
+
+
+transpiler = MLPRTranspiler(mlp)
 
 code = transpiler.generate_code()
 
