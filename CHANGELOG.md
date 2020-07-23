@@ -94,3 +94,12 @@
 > + SVR
 >   + Added:
 >     - Full prediction capabilities
+
+---
+
+> __v0.11.1__
+> *December, 21 2019*
+> + MLP Classifier
+>   + Correction:
+>     - Weights were generated incorrectly
+>     - Sample was not copied to the first layer
