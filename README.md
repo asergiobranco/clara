@@ -13,6 +13,7 @@
 | [sklearn.svm.SVC](https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html) | clara.transpiler.svm.SVCTranspiler|
 | [sklearn.svm.NuSVC](https://scikit-learn.org/stable/modules/generated/sklearn.svm.NuSVC.html) | clara.transpiler.svm.SVCTranspiler|
 | [sklearn.svm.LinearSVM](https://scikit-learn.org/stable/modules/generated/sklearn.svm.LinearSVM.html) | clara.transpiler.svm.LinearSVMTranspiler |
+| [sklearn.svm.SVR](https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVR.html) | clara.transpiler.svm.SVRTranspiler |
 | *Naive Bayes* ||
 | [sklearn.naive_bayes.GaussianNB ](https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.GaussianNB.html) | clara.transpiler.naive_bayes.GaussianNBTranspiler |
 | [sklearn.naive_bayes.ComplementNB ](https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.ComplementNB.html) | clara.transpiler.naive_bayes.ComplementNBTranspiler |
