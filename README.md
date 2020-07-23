@@ -1,4 +1,24 @@
-# clara
+# Clara
+
+CLARA is a tool designed to help Machine Learning developers to build their models using High-Level languages (Python), but easily implement them in C. The goal is not to convert the code, but to convert the trained model itself (the object). Therefore, this is not a code converter, but a **code transpiler**.
+
+The following algorithms are available
+
++ __Classification__
+  - MLP
+  - Decision Tree
+  - Support-Vector Machines (SVC & Nu)
+  - Gaussian Naive Bayes
+  - Complement Naive Bayes
+  - Multinomial Naive Bayes
+  - Categorical Naive Bayes
+  - Bernoulli Naive Bayes
++ __Regression__
+  - MLP
+  - Support-Vector Machines
++ __Others__
+  - PCA
+
 
 ## Transpiling Tools
 
@@ -23,16 +43,27 @@
 | [sklearn.naive_bayes.BernoulliNB](https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.BernoulliNB.html) | clara.transpiler.naive_bayes.BernoulliNBTranspiler |
 
 
+## Syntax
+
+Besides the multiple available algorithms, the syntax to use in any of them is the same and shown in the snippet bellow.
 
 
 ```python
 
-model = ScikitLearnClass() #The model class you want to use
+#The ML Algorithm you want to use
+model = ScikitLearnClass()
+
+# TRAIN YOUR MODEL FIRST!!!
 model.fit()
 
+# The correspondent CLARA TRanspiler Class
 transpiler = ClaraClassTranspiler(model) #The correspondent Clara Class
 
+
+# The C code to be exported to a .c file and compiled
+# The code is of the model trained, therefore no retraining is needed.
 c_code = transpiler.generate_code()
+
 
 ```
 
@@ -153,6 +184,8 @@ int main(){
 ```
 
 # Cite Us
+
+Please, if you use our tool in any of your projects, cite us. This will help us improve and look at what people may need! Thanks!
 
 DOI: [10.5281/zenodo.3930335](https://doi.org/10.5281/zenodo.3930335)
 
