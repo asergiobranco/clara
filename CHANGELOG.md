@@ -86,3 +86,11 @@
 > + Naive Bayes - bernoulliNB
 >   + Added:
 >     - Full prediction capabilities
+
+---
+
+> __v0.11.0__
+> *December, 20 2019*
+> + SVR
+>   + Added:
+>     - Full prediction capabilities
