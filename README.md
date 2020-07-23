@@ -1,4 +1,25 @@
-# clara
+# Clara
+
+CLARA is a tool designed to help Machine Learning developers to build their models using High-Level languages (Python), but easily implement them in C. The goal is not to convert the code, but to convert the trained model itself (the object). Therefore, this is not a code converter, but a **code transpiler**.
+
+The following algorithms are available
+
++ __Classification__
+  - MLP
+  - Decision Tree
+  - Support-Vector Machines (SVC & Nu)
+  - LinearSVM
+  - Gaussian Naive Bayes
+  - Complement Naive Bayes
+  - Multinomial Naive Bayes
+  - Categorical Naive Bayes
+  - Bernoulli Naive Bayes
++ __Regression__
+  - MLP
+  - Support-Vector Machines
++ __Others__
+  - PCA
+
 
 ## Transpiling Tools
 
@@ -23,16 +44,27 @@
 | [sklearn.naive_bayes.BernoulliNB](https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.BernoulliNB.html) | clara.transpiler.naive_bayes.BernoulliNBTranspiler |
 
 
+## Syntax
+
+Besides the multiple available algorithms, the syntax to use in any of them is the same and shown in the snippet bellow.
 
 
 ```python
 
-model = ScikitLearnClass() #The model class you want to use
+#The ML Algorithm you want to use
+model = ScikitLearnClass()
+
+# TRAIN YOUR MODEL FIRST!!!
 model.fit()
 
+# The correspondent CLARA TRanspiler Class
 transpiler = ClaraClassTranspiler(model) #The correspondent Clara Class
 
+
+# The C code to be exported to a .c file and compiled
+# The code is of the model trained, therefore no retraining is needed.
 c_code = transpiler.generate_code()
+
 
 ```
 
@@ -111,23 +143,54 @@ int main(int argc, const char * argv[]) {
 
 # MLP Transpiler
 
-### Python Exporting
+Multi-Layer Perceptron are the basis of Neural Networks and Deep Learning. Our tools provides a way to transpile MLPs for regression and classification problems.
+* **Note:** At the current time, binary classifications are not working... Sorry* 
+
+## MLPClassifier
 
 ```python
 from sklearn.neural_network import MLPClassifier
-from sklearn.datasets import load_wine as dts
+from sklearn.datasets import load_wine
 import numpy as np
+
+from clara.transpiler.mlp import MLPCTranspiler
 
 data = load_wine()
 dataset = np.column_stack((data.data, data.target))
 
 mlp = MLPClassifier(hidden_layer_sizes=(30, 10))
 
-mlp.fit(dataset[::, :-1], dataset[::,-1])
+mlp.fit(ddataset.data, dataset.target)
 
-from clara.transpiler.mlp import mlpTranpiler
 
-transpiler = mlpTranpiler(mlp)
+transpiler = MLPCTranspiler(mlp)
+
+code = transpiler.generate_code()
+
+with open("mlp.c", "w+") as fp:
+  fp.write(code)
+
+```
+
+## MLPRegressor
+
+```python
+from sklearn.neural_network import MLPRegressor
+from sklearn.datasets import load_boston
+import numpy as np
+
+from clara.transpiler.mlp import MLPRTranspiler
+
+data = load_boston()
+dataset = np.column_stack((data.data, data.target))
+
+mlp = MLPClassifier(hidden_layer_sizes=(30, 10))
+
+mlp.fit(dataset.data, dataset.target)
+
+
+
+transpiler = MLPRTranspiler(mlp)
 
 code = transpiler.generate_code()
 
@@ -153,6 +216,8 @@ int main(){
 ```
 
 # Cite Us
+
+Please, if you use our tool in any of your projects, cite us. This will help us improve and look at what people may need! Thanks!
 
 DOI: [10.5281/zenodo.3930335](https://doi.org/10.5281/zenodo.3930335)
 
