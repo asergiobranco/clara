@@ -109,6 +109,12 @@
 > __v0.12.0__
 > *December, 21 2019*
 > + MLP Regressor
->   + Correction:
 >   + Added:
 >     - Full prediction capabilities
+
+---
+
+> __v0.13.0__
+> *December, 22 2019*
+> + StandardScaler
+>   - Transform

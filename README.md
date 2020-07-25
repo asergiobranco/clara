@@ -19,12 +19,14 @@ The following algorithms are available
   - Support-Vector Machines
 + __Others__
   - PCA
+  - StandardScaler
 
 
 ## Transpiling Tools
 
 | Python Class | Clara Class |
 |:------------:|:-----------------:|
+| *Decomposition* |
 | [sklearn.decomposition.PCA](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html) | clara.transpiler.pca.PCATranspiler |
 | *Neural Networks* ||
 | [sklearn.neural_network.MLPClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.neural_network.MLPClassifier.html) | clara.transpiler.mlp.MLPCTranspiler|
@@ -42,6 +44,8 @@ The following algorithms are available
 | [sklearn.naive_bayes.MultinomialNB](https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.MultinomialNB.html) | clara.transpiler.naive_bayes.MultinomialNBTranspiler |
 | [sklearn.naive_bayes.CategoricalNB](https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.CategoricalNB.html) | clara.transpiler.naive_bayes.CategoricalNBTranspiler |
 | [sklearn.naive_bayes.BernoulliNB](https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.BernoulliNB.html) | clara.transpiler.naive_bayes.BernoulliNBTranspiler |
+| *Preprocessing* |
+| [sklearn.preprocessing.StandardScaler](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html) | clara.transpiler.preprocessing.StandardScalerTranspiler |
 
 
 ## Syntax
@@ -144,7 +148,7 @@ int main(int argc, const char * argv[]) {
 # MLP Transpiler
 
 Multi-Layer Perceptron are the basis of Neural Networks and Deep Learning. Our tools provides a way to transpile MLPs for regression and classification problems.
-* **Note:** At the current time, binary classifications are not working... Sorry* 
+* **Note:** At the current time, binary classifications are not working... Sorry*
 
 ## MLPClassifier
 
