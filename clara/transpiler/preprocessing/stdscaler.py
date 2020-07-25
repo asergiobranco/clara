@@ -38,13 +38,13 @@ class StandardScalerTranspiler(object):
             unsigned int i = 0;
             #ifdef MEAN
             for(i = 0; i < N_FEATURES; i++){
-                sample[i] -= mean[i]
+                sample[i] -= mean[i];
             }
             #endif
 
             #ifdef STD
             for(i = 0; i < N_FEATURES; i++){
-                sample[i] /= scale[i]
+                sample[i] /= scale[i];
             }
             #endif
 
