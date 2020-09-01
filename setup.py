@@ -7,14 +7,14 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
-    name="clara",
-    version="0.13.0", #Increse y, when gateway and archnetws are created. x.y.z
+    name="clara_transpiler",
+    version="0.14.0", #Increse y, when gateway and archnetws are created. x.y.z
     author="Sergio Branco | The Architech",
     author_email="asergio.branco@gmail.com",
     description="",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="clara.asergiobranco.com",
+    url="https://github.com/asergiobranco/clara",
     packages=find_packages(),
     package_data={
         '': ['*.md'],

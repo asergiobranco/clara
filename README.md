@@ -17,9 +17,14 @@ The following algorithms are available
 + __Regression__
   - MLP
   - Support-Vector Machines
-+ __Others__
++ __Decomposition__
   - PCA
++ __Preprocessing__
   - StandardScaler
+  - KernelCenterer
+  - MaxAbsScaler
+  - MinMaxScaler
+  - RobustScaler
 
 
 ## Transpiling Tools
