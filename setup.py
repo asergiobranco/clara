@@ -8,7 +8,7 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name="clara_transpiler",
-    version="0.17.1", #Increse y, when gateway and archnetws are created. x.y.z
+    version="0.17.3", #Increse y, when gateway and archnetws are created. x.y.z
     author="Sergio Branco | The Architech",
     author_email="asergio.branco@gmail.com",
     description="",
@@ -30,4 +30,5 @@ setup(
         "Topic :: Scientific/Engineering :: Artificial Intelligence",
         "Topic :: Software Development :: Embedded Systems"
     ],
+    python_requires='>=3.4',
 )
