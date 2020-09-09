@@ -144,7 +144,7 @@ class SVCTranspiler(object):
 
             for(i=0; i<N_CLASSES; i++){
                 for(j=i+1; j<N_CLASSES; j++){
-
+                    decision_rule = 0;
                     for(k=ranges[j]; k<ranges[j+1]; k++){
                         decision_rule += kernels[k] * coefs[i][k];
                     }

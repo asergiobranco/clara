@@ -118,3 +118,38 @@
 > *December, 22 2019*
 > + StandardScaler
 >   - Transform
+
+---
+
+> __v0.14.0__
+> *December, 22 2019*
+> + MaxAbsScaler
+>   - Transform
+
+---
+
+> __v0.15.0__
+> *December, 22 2019*
+> + MinMax
+>   - Transform
+
+---
+
+> __v0.16.0__
+> *December, 22 2019*
+> + RobustScaler
+>   - Transform
+
+---
+
+> __v0.17.0__
+> *December, 22 2019*
+> + KernelCenter
+>   - Transform
+
+---
+
+> __v0.17.1__
+> *July, 12 2020*
+> + SVC
+>   - Zero decision_rule on code.
