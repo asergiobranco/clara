@@ -5,7 +5,7 @@ __pycache__/
 
 # C extensions
 *.so
-
+.pypi
 # Distribution / packaging
 .Python
 build/
