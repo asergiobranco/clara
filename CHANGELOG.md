@@ -153,3 +153,10 @@
 > *July, 12 2020*
 > + SVC
 >   - Zero decision_rule on code.
+
+---
+
+> __v0.17.4__
+> *August, 20 2020*
+> + SVC
+>   - Matrix reduction for SVC Linear

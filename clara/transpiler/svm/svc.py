@@ -1,3 +1,4 @@
+import numpy as np
 class SVCTranspiler(object):
 
     def __init__(self, model):
@@ -15,6 +16,7 @@ class SVCTranspiler(object):
         self.build_support_vectors()
         self.build_intercepts()
         self.build_coefs()
+        self.build_dual_coefs()
         self.build_ranges()
 
     def build_intercepts(self):
@@ -27,10 +29,27 @@ class SVCTranspiler(object):
 
         self.sv = ',\n'.join(matrix)
 
-    def build_coefs(self):
+    def build_dual_coefs(self):
         matrix =[]
         for sv in self.model.dual_coef_:
             matrix.append("{%s}" % ','.join(sv.astype(str)))
+
+        self.dual_coefs = ',\n'.join(matrix)
+
+    def build_coefs(self):
+        from itertools import combinations
+        self.cls_combinations = np.asarray(list(combinations([np.asarray(x) for x in range(len(self.model.classes_))], 2)))
+
+        matrix =[]
+        for sv in self.cls_combinations:
+            matrix.append("{%s}" % ','.join(sv.astype(str)))
+
+        self.cls_combinations = ','.join(matrix)
+
+        matrix=[]
+        if self.model.kernel == "linear":
+            for sv in self.model.coef_:
+                matrix.append("{%s}" % ','.join(sv.astype(str)))
 
         self.coefs = ',\n'.join(matrix)
 
@@ -56,14 +75,22 @@ class SVCTranspiler(object):
         #define %s
 
         #ifndef LINEAR
-        #define GAMMA %s
-        #define COEF %s
+            #define GAMMA %s
+            #define COEF %s
+            double support_vectors[N_SUPPORT_VECTORS][N_FEATURES] = {%s};
+            double coefs[N_CLASSES-1][N_SUPPORT_VECTORS] = {%s};
+            unsigned int ranges[N_CLASSES+1] ={%s};
         #endif
 
-        double support_vectors[N_SUPPORT_VECTORS][N_FEATURES] = {%s};
-        double coefs[N_CLASSES-1][N_SUPPORT_VECTORS] = {%s};
-        unsigned int ranges[N_CLASSES+1] ={%s};
+        #ifdef LINEAR
+            double support_vectors[N_INTERCEPTS][N_FEATURES] = {%s};
+            unsigned int cls_combinations[N_INTERCEPTS][2] = {%s};
+        #endif
+
+
+
         double intercepts[N_INTERCEPTS] = {%s};
+
 
 
         #ifndef RBF
@@ -128,9 +155,45 @@ class SVCTranspiler(object):
         #endif
 
         #ifdef LINEAR
-        #define KERNEL(...) linear_kernel(__VA_ARGS__)
-        #endif
 
+
+        int predict(double * sample){
+            unsigned int amounts[N_CLASSES] = {0};
+            unsigned int i, j, class = 0;
+            double decision_rule;
+            for(i = 0; i < N_INTERCEPTS; i++){
+
+                decision_rule = 0;
+
+                for(j = 0; j < N_FEATURES; j++){
+                    decision_rule += support_vectors[i][j]*sample[j];
+                }
+
+                #if N_CLASSES==2
+                    if(decision_rule + intercepts[d_rule] < 0){
+                        amounts[cls_combinations[i][0]]++;
+                    }
+                    else{
+                        amounts[cls_combinations[i][1]]++;
+                    }
+                #else
+                    if(decision_rule + intercepts[d_rule] > 0){
+                        amounts[cls_combinations[i][0]]++;
+                    }
+                    else{
+                        amounts[cls_combinations[i][1]]++;
+                    }
+                #endif
+            }
+
+            for(i=0; i<N_CLASSES; i++){
+                class = (amounts[i] > amounts[class]) ? i : class;
+            }
+
+
+            return class;
+        }
+        #else
         int predict(double * sample){
             double decision_rule = 0.0;
             unsigned int amounts[N_CLASSES] = {0}, d_rule = 0, class = 0, i=0, j=0, k=0;
@@ -182,5 +245,9 @@ class SVCTranspiler(object):
             return class;
         }
 
+        #endif
+
+
+
         """ % (self.n_sv, self.n_features, self.n_classes, self.kernel_type, self.gamma, self.coef,
-        self.sv, self.coefs, self.ranges, self.intercepts, self.degree)
+        self.sv, self.dual_coefs, self.ranges, self.coefs, self.cls_combinations, self.intercepts, self.degree)
