@@ -170,7 +170,7 @@ class SVCTranspiler(object):
                 }
 
                 #if N_CLASSES==2
-                    if(decision_rule + intercepts[d_rule] < 0){
+                    if(decision_rule + intercepts[i] < 0){
                         amounts[cls_combinations[i][0]]++;
                     }
                     else{
