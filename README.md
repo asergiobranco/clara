@@ -1,3 +1,12 @@
+All new code and new features will be available at the new location: 
+
+[https://github.com/asergiobranco/teil-c](https://github.com/asergiobranco/teil-c)
+[https://github.com/asergiobranco/teil-python](https://github.com/asergiobranco/teil-python)
+
+Further documentation and official information is available at:
+
+[https://teil.readthedocs.io](https://teil.readthedocs.io)
+
 # Clara
 
 CLARA is a tool designed to help Machine Learning developers to build their models using High-Level languages (Python), but easily implement them in C. The goal is not to convert the code, but to convert the trained model itself (the object). Therefore, this is not a code converter, but a **code transpiler**.
